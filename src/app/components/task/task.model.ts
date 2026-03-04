@@ -1,12 +1,13 @@
-export interface Task{
-  id:string;
-  title:string;
-  task:string;
-  date:string;
+export interface Task {
+  id: string;
+  title: string;
+  task: string;
+  date: string;
+  completed: boolean;
 }
 
-export interface newTaskData{
-  title:string,
-  task:string,
-  date:string
+export interface NewTaskData {
+  title: string;
+  task: string;
+  date: string;
 }

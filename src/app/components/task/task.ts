@@ -9,20 +9,26 @@ import { TasksService } from './task.service';
   styleUrl: './task.css',
 })
 export class Task {
-
+  complete?:boolean;
   isAddingTask=false;
+  tasks: any[] = [];
+
+
+  constructor(private tasksService: TasksService) {
+    this.tasks = this.tasksService.getTasks();
+  }
 
   onStartAddTask(){
     this.isAddingTask=true;
     }
     onCloseAddTask(){
+      console.log("Closing dialog...");
     this.isAddingTask=false;
     }
+    onDeleteTask(id: string) {
+      console.log("apagando....")
+      this.tasksService.removeTask(id);
+      this.tasks = this.tasksService.getTasks();
+    }
 
-    @Input({required:true}) task!: Task;
-
-private TasksService=inject(TasksService);
-onCompleteTask(){
-// this.TasksService.removeTask(this.task.id)
-}
   }

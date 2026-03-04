@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-task',
+  standalone:true,
   imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.css',
@@ -18,6 +19,7 @@ private TasksService=inject(TasksService)
   onCancel(){
     this.close.emit();
   }
+
   onSubmit(){
    this.TasksService.addTask({
     title:this.enteredTitle,
